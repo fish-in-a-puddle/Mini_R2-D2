@@ -8,6 +8,7 @@ const int motorControl = 8;
 const int irRecv = 3;
 const int headPin = 5;
 const int blueLed = 13;
+const int redLed = 12;
 
 //Establish servos
 Servo steeringServo, headServo;
@@ -16,6 +17,7 @@ Servo steeringServo, headServo;
 void setup() {
     pinMode(motorControl, OUTPUT);
     pinMode(blueLed, OUTPUT);
+    pinMode(redLed, OUTPUT)
     steeringServo.attach(steeringPin);
     headServo.attach(headPin);
     steeringServo.write(90);
@@ -25,8 +27,10 @@ void setup() {
 
 void loop() {
     digitalWrite(blueLed, HIGH);
+    digitalWrite(redLed, LOW);
     delay(500);
     digitalWrite(blueLed, LOW);
+    digitalWrite(redLed, HIGH);
     delay(500);
 
 }
