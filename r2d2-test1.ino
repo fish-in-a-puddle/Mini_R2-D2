@@ -9,6 +9,9 @@ const int irRecv = 3;
 const int headPin = 5;
 const int blueLed = 13;
 const int redLed = 12;
+const int usTrig = 10;
+const int usEcho = 11;
+const int buzzer = 7;
 
 //Establish servos
 Servo steeringServo, headServo;
