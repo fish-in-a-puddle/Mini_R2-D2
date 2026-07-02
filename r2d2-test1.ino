@@ -1,0 +1,32 @@
+//Include libraries
+#include <Servo.h>
+#include <IRremote.h>
+
+//Establish pins for different purposes
+const int steeringPin = 9;
+const int motorControl = 8;
+const int irRecv = 3;
+const int headPin = 5;
+const int blueLed = 13;
+
+//Establish servos
+Servo steeringServo, headServo;
+
+
+void setup() {
+    pinMode(motorControl, OUTPUT);
+    pinMode(blueLed, OUTPUT);
+    steeringServo.attach(steeringPin);
+    headServo.attach(headPin);
+    steeringServo.write(90);
+    headServo.write(90);
+
+}
+
+void loop() {
+    digitalWrite(blueLed, HIGH);
+    delay(500);
+    digitalWrite(blueLed, LOW);
+    delay(500);
+
+}
