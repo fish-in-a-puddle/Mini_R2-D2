@@ -1,4 +1,7 @@
-#include <irRemote.h>
+#include <irRemote.hpp>
+#include <Servo.h>
+//IRremote library v4.4.0 is required
+
 
 const int steeringPin = 9;
 const int motorControl = 8;
@@ -10,11 +13,10 @@ const int usTrig = 10;
 const int usEcho = 11;
 const int buzzer = 7;
 
-IRrecv irrecv(irPin);
-decode_results results;
+uint64_t decCode;
 
 void setup() {
-    irrecv.enableIRIn();
+    IrReceiver.begin(irPin);
     pinMode(motorControl, OUTPUT);
     pinMode(blueLed, OUTPUT);
     pinMode(redLed, OUTPUT)
@@ -26,12 +28,19 @@ void setup() {
 }
 
 void loop() {
-    int ir_value
-    if (irrecv.decode(&results)) {
-        ir_value = (results.value, HEX);
-        irrecv.resume();
-        case (ir_value == ) {
+   if(IrReceiver.decode())  // If we receive a signal from the IR receiver
+  {
+    decCode = IrReceiver.decodedIRData.decodedRawData;  
+    
 
-        }
+    if(decCode == 7477 || decCode == 5429)  
+    {
+       digitalWrite(blueLed, HIGH);
     }
+    else if(decCode == 7478 || decCode == 5430) {
+        digitalWrite(blueLed, LOW);
+    }
+    IrReceiver.resume();  // Receive the next value
+  }  
+  
 }

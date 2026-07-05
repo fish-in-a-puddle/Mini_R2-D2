@@ -1,2 +1,5 @@
 R2-D2 sound generator:
 https://github.com/marcelolarios/R2D2-Sound-Generator/tree/main 
+
+Ir value receiver & tester:
+https://www.youtube.com/watch?v=JZZZapqS-WA 
