@@ -12,7 +12,7 @@ const int blueLed = 13;
 const int redLed = 12;
 const int usTrig = 10;
 const int usEcho = 11;
-const int buzzer = 4;
+const int buzzer = 6;
 
 uint64_t decCode;
 Servo headServo, steeringServo;
@@ -40,12 +40,12 @@ void loop() {
     if(decCode == 7477 || decCode == 5429)  
     {
       steeringServo.write(90);
-       digitalWrite(motorPlus, HIGH);
-       digitalWrite(motorMinus, LOW);
+      digitalWrite(motorPlus, HIGH);
+      digitalWrite(motorMinus, LOW);
     }
     else if(decCode == 7478 || decCode == 5430) {
-        digitalWrite(motorPlus, LOW);
-        digitalWrite(motorPlus, LOW);
+      digitalWrite(motorPlus, LOW);
+      digitalWrite(motorPlus, LOW);
     }
     else if(decCode == 7457 || decCode == 5409) {
       steeringServo.write(45);
