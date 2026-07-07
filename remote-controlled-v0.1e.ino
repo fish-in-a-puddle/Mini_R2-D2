@@ -33,31 +33,28 @@ void setup() {
 }
 
 void loop() {
-   if(IrReceiver.decode())  // If we receive a signal from the IR receiver
-  {
+   if(IrReceiver.decode())
+
     decCode = IrReceiver.decodedIRData.decodedRawData;  
-    
 
     if(decCode == 7477 || decCode == 5429)  
     {
       steeringServo.write(90);
        digitalWrite(motorPlus, HIGH);
        digitalWrite(motorMinus, LOW);
-       IrReceiver.resume();
     }
     else if(decCode == 7478 || decCode == 5430) {
         digitalWrite(motorPlus, LOW);
         digitalWrite(motorPlus, LOW);
-        IrReceiver.resume();
     }
     else if(decCode == 7457 || decCode == 5409) {
       steeringServo.write(45);
-      IrReceiver.resume();
     }
     else if (decCode == 7456 || decCode == 5408) {
       steeringServo.write(135);
-      IrReceiver.resume();
     }
+    delay(50);
+    IrReceiver.resume;
   }  
   
 }
