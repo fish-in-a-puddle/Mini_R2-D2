@@ -75,10 +75,13 @@ void phrase2() {
 
 
 void loop() {
-   if(IrReceiver.decode())
+   if(IrReceiver.decode()){
 
     decCode = IrReceiver.decodedIRData.decodedRawData;  
-
+    digitalWrite(blueLed, HIGH);
+    delay(500);
+    digitalWrite(blueLed, LOW);
+    
     if(decCode == 7477 || decCode == 5429)  
     {
       if (motorMode == 0) {
@@ -95,7 +98,7 @@ void loop() {
       }
     }
     else if(decCode == 7457 || decCode == 5409) {
-      steeringPosition = steeringServo.read;
+      steeringPosition = (steeringServo.read());
       if (steeringPosition << 90) {
         steeringServo.write(90);
         steeringPosition = 90;
@@ -106,7 +109,7 @@ void loop() {
       }
     }
     else if (decCode == 7456 || decCode == 5408) {
-      steeringPosition = steeringServo.read;
+      steeringPosition = (steeringServo.read());
       if (steeringPosition >> 90) {
         steeringServo.write(90);
         steeringPosition = 90;
@@ -116,7 +119,7 @@ void loop() {
         steeringPosition = 45;
       }
     }
-    else if (decCode ==7474 || deCode == 5426) {
+    else if (decCode ==7474 || decCode == 5426) {
       // Sound generator code:
       int K = 2000;
     switch (random(1,7)) {
@@ -141,7 +144,6 @@ void loop() {
     delay(100);
     }
     delay(50);
-    IrReceiver.resume;
-  }  
-  
-}
+    IrReceiver.resume();
+  } 
+} 
