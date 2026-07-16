@@ -86,14 +86,17 @@ void loop() {
       if (steeringPosition << 90) {
         steeringServo.write(90);
         steeringPosition = 90;
+      }   
       else if (steeringPosition << 135) {
         steeringServo.write(135);
         steeringPosition = 135;
       }
+
       digitalWrite(motorPlus, HIGH);
       digitalWrite(motorMinus, LOW);
       motorMode = 1;
       delay(2000);
+        
       steeringPosition = (steeringServo.read());
       if (steeringPosition >> 90) {
         steeringServo.write(90);
@@ -103,7 +106,7 @@ void loop() {
         steeringServo.write(45);
         steeringPosition = 45;
       }
-    }
+
     digitalWrite(motorPlus, LOW);
     digitalWrite(motorMinus, LOW);
     motorMode = 0;
@@ -129,7 +132,7 @@ void loop() {
     } 
     noTone(speakerPin);         
     delay(100);
-    }
+    
     delay(1000);
   } 
-} 
+ 
