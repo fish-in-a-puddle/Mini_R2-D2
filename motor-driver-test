@@ -1,0 +1,23 @@
+const int motorPlus = 8;
+const int motorMinus = 7;
+
+void setup() {
+    pinMode(motorMinus, OUTPUT);
+    pinMode(motorPlus, OUTPUT);
+    pinMode(13, OUTPUT);
+    digitalWrite(motorMinus, LOW);
+    digitalWrite(motorPlus, LOW);
+    digitalWrite(13, LOW);
+
+}
+
+void loop() {
+    digitalWrite(motorPlus, HIGH);
+    digitalWrite(motorMinus, LOW);
+    digitalWrite(13, HIGH);
+    delay(2000);
+    digitalWrite(motorPlus, LOW);
+    digitalWrite(motorMinus, LOW);
+    digitalWrite(13, LOW);
+    delay(2000);
+}
